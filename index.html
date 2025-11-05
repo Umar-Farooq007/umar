@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umar Farooq | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --light-color: #f8fafc;
+            --dark-color: #1e293b;
+            --text-color: #334155;
+            --text-light: #64748b;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f1f5f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-img {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .hero-text p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .skills {
+            margin-top: 30px;
+        }
+
+        .skill-category {
+            margin-bottom: 25px;
+        }
+
+        .skill-category h4 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: #e0f2fe;
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Experience Section */
+        .experience {
+            background-color: #f8fafc;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .timeline-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content .date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .timeline-content ul {
+            padding-left: 20px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 8px;
+            list-style-type: disc;
+            color: var(--text-light);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .project-info p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-tags span {
+            background-color: #e0f2fe;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Education Section */
+        .education {
+            background-color: #f8fafc;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .education-card {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .education-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .education-card h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .education-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .education-card .date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-links h3, .footer-social h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content, .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-img {
+                order: -1;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .btn {
+                width: 200px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Umar<span>Farooq</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-img">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Umar Farooq" class="profile-img">
+                </div>
+                <div class="hero-text">
+                    <h1>Umar Farooq</h1>
+                    <h2>Technical Support Professional & BCA Graduate</h2>
+                    <p>Leveraging 1.8+ years of professional experience in technical support and quality assurance. Skilled in Cloud Computing (AWS), Python, and IT troubleshooting with a strong foundation in customer service excellence.</p>
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn">Contact Me</a>
+                        <a href="#projects" class="btn btn-outline">View My Work</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Technical & Operations-Focused Professional</h3>
+                    <p>I'm a BCA graduate with 1.8+ years of experience in high-volume technical support and quality assurance environments. My expertise spans across cloud computing, IT troubleshooting, and customer service excellence.</p>
+                    <p>I'm passionate about solving complex technical problems and continuously expanding my skills in emerging technologies. My goal is to contribute to innovative projects while driving operational efficiency and delivering exceptional user experiences.</p>
+                    
+                    <div class="skills">
+                        <div class="skill-category">
+                            <h4>Cloud Computing (AWS)</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">AWS EC2</span>
+                                <span class="skill-tag">AWS S3</span>
+                                <span class="skill-tag">RDS</span>
+                                <span class="skill-tag">EBS</span>
+                                <span class="skill-tag">EFS</span>
+                                <span class="skill-tag">Load Balancing</span>
+                                <span class="skill-tag">Route 53</span>
+                                <span class="skill-tag">AWS IAM</span>
+                                <span class="skill-tag">AWS Policies</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Programming & DevOps</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">GitHub</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>IT & Networking</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Technical Troubleshooting</span>
+                                <span class="skill-tag">LAN/WAN</span>
+                                <span class="skill-tag">TCP/IP</span>
+                                <span class="skill-tag">DNS</span>
+                                <span class="skill-tag">DHCP</span>
+                                <span class="skill-tag">VPN</span>
+                                <span class="skill-tag">VOIP</span>
+                                <span class="skill-tag">OSI Model</span>
+                                <span class="skill-tag">Remote Access</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Support Systems</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Salesforce CRM</span>
+                                <span class="skill-tag">Genisys Dialer</span>
+                                <span class="skill-tag">Ticketing Systems</span>
+                                <span class="skill-tag">Escalation Management</span>
+                                <span class="skill-tag">Basic Linux</span>
+                                <span class="skill-tag">MS Dynamics CRM</span>
+                                <span class="skill-tag">Active Directory</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats card">
+                    <h3>Professional Highlights</h3>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h4>1.8+ Years</h4>
+                            <p>Professional Experience</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>95%</h4>
+                            <p>Customer Satisfaction Score</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>20%</h4>
+                            <p>Improved First Call Resolution</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>15%</h4>
+                            <p>Reduced Average Handle Time</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;">Languages</h3>
+                    <div class="language-tags">
+                        <span class="skill-tag">English</span>
+                        <span class="skill-tag">Hindi</span>
+                        <span class="skill-tag">Kannada</span>
+                        <span class="skill-tag">Urdu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <h3>Customer Support Executive - II (Subject Matter Expert)</h3>
+                        <h4>Conduent Business Services, Bengaluru</h4>
+                        <span class="date">Feb 2025 – Present</span>
+                        <ul>
+                            <li>Spearheaded workflow coordination as a Subject Matter Expert (SME), providing on-the-floor support and clarifying complex process doubts for team members to ensure compliance.</li>
+                            <li>Audited team calls and monitored service quality, helping to maintain high process adherence and contributing to consistently high team performance and customer satisfaction scores.</li>
+                            <li>Managed critical issue escalations to the Assistance Required (AR) team, documenting all cases accurately in Salesforce CRM to ensure timely and effective resolution paths.</li>
+                            <li>Provided end-to-end customer support via phone and email, guiding users through technical aspects of website and application navigation, while proactively managing follow-ups.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content card">
+                        <h3>Support Associate</h3>
+                        <h4>Concentrix Pvt Ltd, Bengaluru</h4>
+                        <span class="date">Oct 2023 – Dec 2024</span>
+                        <ul>
+                            <li>Provided diagnosis and resolution for complex technical issues, including system performance problems, OS-related errors, application malfunctions, and connectivity issues.</li>
+                            <li>Managed the full ticket lifecycle using Salesforce CRM and cloud-based dialers; documented each interaction and troubleshooting step to ensure accurate tracking and closure.</li>
+                            <li>Escalated complex technical concerns to higher-level support teams with well-documented tickets and performed follow-up to confirm complete issue resolution.</li>
+                            <li>Improved First Call Resolution (FCR) by 20% via structured troubleshooting and maintaining thorough product knowledge, ensuring accurate, first-time resolutions.</li>
+                            <li>Achieved a 95% Customer Satisfaction Score (CSAT) and maintained high service quality while handling large call volumes, demonstrating compliance with SLA and quality assurance standards.</li>
+                            <li>Reduced Average Handle Time (AHT) by 15% by effectively providing end-to-end technical support for desktops and laptops through guided instructions and remote access.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Academic & Technical Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1715&q=80" alt="Sports Buzz">
+                    </div>
+                    <div class="project-info">
+                        <h3>Sports Buzz</h3>
+                        <p>A dynamic sports website focusing on real-time data display and efficient backend structure.</p>
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>MongoDB</span>
+                            <span>Backend Development</span>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80" alt="Eye Wear Shop">
+                    </div>
+                    <div class="project-info">
+                        <h3>Eye Wear Shop</h3>
+                        <p>A complete e-commerce site with user interface design and secure data handling.</p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="AWS Cloud Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>AWS Infrastructure Setup</h3>
+                        <p>Deployed and managed cloud infrastructure using various AWS services.</p>
+                        <div class="project-tags">
+                            <span>AWS EC2</span>
+                            <span>AWS S3</span>
+                            <span>RDS</span>
+                            <span>Load Balancing</span>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="education-grid">
+                <div class="education-card card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Bachelor of Computer Applications (BCA)</h3>
+                    <h4>The Oxford College of Science, Bengaluru</h4>
+                    <p class="date">June 2020 – Oct 2023</p>
+                </div>
+                
+                <div class="education-card card">
+                    <div class="education-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3>2nd PUC (12th Grade)</h3>
+                    <h4>Shantiniketan PU College, Bengaluru</h4>
+                    <p class="date">June 2019 – Apr 2020</p>
+                </div>
+                
+                <div class="education-card card">
+                    <div class="education-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>SSLC (10th Grade)</h3>
+                    <h4>Meena English High School, Bengaluru</h4>
+                    <p class="date">2018</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Bengaluru, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>umarfarooq17036@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 7349717036</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p>linkedin.com/in/umarfarooq</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Umar<span>Farooq</span></div>
+                    <p>Technical Support Professional with expertise in cloud computing, IT troubleshooting, and customer service excellence.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Me</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Umar Farooq. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = 'white';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
